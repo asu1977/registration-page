@@ -8,10 +8,11 @@ export default (state = initialState, action) => {
     return (
       action.payload
     );
-    case LOGOUT_USER:
-    return (
-      action.payload
-    );
+    // case LOGOUT_USER:
+    // console.log(state)
+    // return (
+    //   action.payload
+    // );
     default:
       return state;
   }

@@ -16,10 +16,6 @@ class Profile extends Component {
   }
 
   exit = () => (
-    this.props.addFirstNane(null),
-    this.props.addLastName(null),
-    this.props.addEmail(null),
-    this.props.addPhone(null),
     this.props.logoutUser()
   )
 
