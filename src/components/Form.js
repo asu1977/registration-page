@@ -1,37 +1,29 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux'
+import {
+  addFirstNane,
+  addLastName,
+  addEmail,
+  addPhone,
+  loginUser } from '../actions/userActions'
 
 class Form extends Component {
 
 	constructor(props) {
     super(props);
-    const firstName = '';
-    const lastName = '';
-    const email = '';
-    const phone = '';
-    this.state = {
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      phone: phone,
-    }
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.isSubmitEnabled = this.isSubmitEnabled.bind(this);
 	}
 
 	handleSubmit(event) {
-    const user = {
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      email: this.state.email,
-      phone: this.state.phone,
-    }
-    console.log(user);
+    this.props.loginUser();
     event.preventDefault();
   }
 
   isSubmitEnabled() {
-    if(this.state.firstName && this.state.lastName && this.state.email && this.state.phone){
+    const {firstName, lastName, email, phone} = this.props;
+    if (lastName.length != 0 && email.length != 0 && phone.length != 0 && firstName.length != 0){
        return true;
     }
     return false;
@@ -39,22 +31,22 @@ class Form extends Component {
 
   onNameChange = e => {
     const val = e.target.value;
-    this.setState({firstName: val})
+    this.props.addFirstNane(val)
   }
 
   onLastNameChange = e => {
     const val = e.target.value;
-    this.setState({lastName: val})
+    this.props.addLastName(val)
   }
 
   onMailChange = e => {
     const val = e.target.value;
-    this.setState({email: val})
+    this.props.addEmail(val)
   }
 
   onPhoneChange = e => {
     const val = e.target.value;
-    this.setState({phone: val})
+    this.props.addPhone(val)
   }
 
   render() {
@@ -91,4 +83,19 @@ class Form extends Component {
   }
 }
 
-export default Form;
+const mapStateToProps = state => ({
+  firstName: state.firstName,
+  lastName: state.lastName,
+  email: state.email,
+  phone: state.phone,
+})
+
+const mapDispatchToProps = {
+  addFirstNane,
+  addLastName,
+  addEmail,
+  addPhone,
+  loginUser
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form);

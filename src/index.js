@@ -3,9 +3,9 @@ import ReactDom from 'react-dom';
 
 import "./style/main.scss";
 
-import Homepage from './Containers/Homepage';
+import App from './App';
 
 ReactDom.render(
-	<Homepage />,
+	<App />,
 	document.getElementById('root')
 );

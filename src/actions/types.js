@@ -1,0 +1,6 @@
+export const ADD_FIRST_NAME = 'ADD_FIRST_NAME'
+export const ADD_LAST_NAME = 'ADD_LAST_NAME'
+export const ADD_EMAIL = 'ADD_EMAIL'
+export const ADD_PHONE = 'ADD_PHONE'
+export const LOGIN_USER = 'LOGIN_USER'
+export const LOGOUT_USER = 'LOGOUT_USER'
