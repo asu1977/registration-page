@@ -23,7 +23,7 @@ class Form extends Component {
 
   isSubmitEnabled() {
     const {firstName, lastName, email, phone} = this.props;
-    if (lastName.length != 0 && email.length != 0 && phone.length != 0 && firstName.length != 0){
+    if (lastName && email && phone && firstName){
        return true;
     }
     return false;
